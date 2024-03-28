@@ -1,9 +1,15 @@
 // import { Inter } from "next/font/google";
 import { Nunito } from "next/font/google";
 import Navbar from "@/app/components/navbar/Navbar";
+import LoginModal from "@/app/components/modals/LoginModal";
 import RegisterModal from "@/app/components/modals/RegisterModal";
+import SearchModal from "@/app/components/modals/SearchModal";
+import RentModal from "@/app/components/modals/RentModal";
+
+import ToasterProvider from "@/app/providers/ToasterProvider";
 
 import "./globals.css";
+import getCurrentUser from "./actions/getCurrentUser";
 
 // const inter = Inter({ subsets: ["latin"] });
 const font = Nunito({
@@ -15,16 +21,22 @@ export const metadata = {
   description: "Airbnb Clone",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={font.className}>
+        <ToasterProvider />
+        <LoginModal />
         <RegisterModal />
-        <Navbar />
+        <SearchModal />
+        <RentModal />
+        <Navbar currentUser={currentUser} />
         <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>

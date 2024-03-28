@@ -33,6 +33,7 @@ const Modal: React.FC<ModalProps> = ({
   const [showModal, setShowModal] = useState(isOpen);
 
   useEffect(() => {
+    console.log("Modal-->useEffect");
     setShowModal(isOpen);
   }, [isOpen]);
 

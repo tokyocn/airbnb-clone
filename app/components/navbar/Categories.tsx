@@ -2,22 +2,22 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
-import {
-  GiBarn,
-  GiBoatFishing,
-  GiCactus,
-  GiCastle,
-  GiCaveEntrance,
-  GiForestCamp,
-  GiIsland,
-  GiWindmill,
-} from "react-icons/gi";
-import { FaSkiing } from "react-icons/fa";
-import { BsSnow } from "react-icons/bs";
-import { IoDiamond } from "react-icons/io5";
-import { MdOutlineVilla } from "react-icons/md";
+// import {
+//   GiBarn,
+//   GiBoatFishing,
+//   GiCactus,
+//   GiCastle,
+//   GiCaveEntrance,
+//   GiForestCamp,
+//   GiIsland,
+//   GiWindmill,
+// } from "react-icons/gi";
+// import { FaSkiing } from "react-icons/fa";
+// import { BsSnow } from "react-icons/bs";
+// import { IoDiamond } from "react-icons/io5";
+// import { MdOutlineVilla } from "react-icons/md";
 
-// import CategoryBox from "../CategoryBox";
+import CategoryBox from "../CategoryBox";
 import Container from "../Container";
 
 export const categories = [
@@ -26,26 +26,26 @@ export const categories = [
     icon: TbBeach,
     description: "This property is close to the beach!",
   },
-  {
-    label: "Windmills",
-    icon: GiWindmill,
-    description: "This property is has windmills!",
-  },
+  // {
+  //   label: "Windmills",
+  //   icon: GiWindmill,
+  //   description: "This property is has windmills!",
+  // },
   // {
   //   label: "Modern",
   //   icon: MdOutlineVilla,
   //   description: "This property is modern!",
   // },
-  // {
-  //   label: "Countryside",
-  //   icon: TbMountain,
-  //   description: "This property is in the countryside!",
-  // },
-  // {
-  //   label: "Pools",
-  //   icon: TbPool,
-  //   description: "This is property has a beautiful pool!",
-  // },
+  {
+    label: "Countryside",
+    icon: TbMountain,
+    description: "This property is in the countryside!",
+  },
+  {
+    label: "Pools",
+    icon: TbPool,
+    description: "This is property has a beautiful pool!",
+  },
   // {
   //   label: "Islands",
   //   icon: GiIsland,
@@ -120,14 +120,14 @@ const Categories = () => {
           overflow-x-auto
         "
       >
-        {/* {categories.map((item) => (
+        {categories.map((item) => (
           <CategoryBox
             key={item.label}
             label={item.label}
             icon={item.icon}
             selected={category === item.label}
           />
-        ))} */}
+        ))}
       </div>
     </Container>
   );
