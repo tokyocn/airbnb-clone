@@ -1,4 +1,5 @@
 // import { Inter } from "next/font/google";
+import { Suspense } from "react";
 import { Nunito } from "next/font/google";
 import Navbar from "@/app/components/navbar/Navbar";
 import LoginModal from "@/app/components/modals/LoginModal";
@@ -31,12 +32,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <ToasterProvider />
-        <LoginModal />
-        <RegisterModal />
-        <SearchModal />
-        <RentModal />
-        <Navbar currentUser={currentUser} />
+        <Suspense>
+          <ToasterProvider />
+          <LoginModal />
+          <RegisterModal />
+          <SearchModal />
+          <RentModal />
+          <Navbar currentUser={currentUser} />
+        </Suspense>
         <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
